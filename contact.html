@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — P.A.BOUW</title>
+  <meta name="description" content="P.A.BOUW B.V. — renovatie, uitbouw en opbouw in Amsterdam. Heel Nederland." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a href="index.html" class="brand"><img src="pa-bouw-logo.png" alt="" /><strong>P.A.BOUW</strong></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="diensten/index.html">Diensten</a>
+      <a href="projecten.html">Projecten</a>
+      <a href="over-ons.html">Over ons</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="tel" href="tel:+31686474177">06 86 47 41 77</a>
+  </header>
+  
+  <section class="band page">
+    <h1>Offerte</h1>
+    <hr class="rule" />
+    <p>06 86 47 41 77 · 036 203 0587 · info@pabouw.nl<br />
+    Noorddammerweg 109-05, 1187 ZS Amstelveen<br />
+    Amsterdam · heel Nederland</p>
+    <form id="offerteform">
+      <div class="chips" id="kinds">
+        <button type="button" class="on" data-v="Renovatie">Renovatie</button>
+        <button type="button" data-v="Uitbouw">Uitbouw</button>
+        <button type="button" data-v="Dakopbouw">Dakopbouw</button>
+        <button type="button" data-v="Badkamer">Badkamer</button>
+        <button type="button" data-v="Keuken">Keuken</button>
+      </div>
+      <label>Naam <input name="naam" required autocomplete="name" /></label>
+      <label>Telefoon <input name="tel" required type="tel" autocomplete="tel" /></label>
+      <label>Plaats <input name="plaats" value="Amsterdam" /></label>
+      <label>Kort <textarea name="kort" rows="3" placeholder="Geen straat nodig"></textarea></label>
+      <div class="btns">
+        <button class="btn btn-g" type="submit">Verstuur</button>
+        <a class="btn btn-o dark" href="https://wa.me/31686474177">WhatsApp</a>
+      </div>
+    </form>
+  </section>
+  <script>
+    let kind = "Renovatie";
+    document.querySelectorAll("#kinds button").forEach((b) => {
+      b.onclick = () => {
+        document.querySelectorAll("#kinds button").forEach((x) => x.classList.remove("on"));
+        b.classList.add("on");
+        kind = b.dataset.v;
+      };
+    });
+    document.getElementById("offerteform").onsubmit = (e) => {
+      e.preventDefault();
+      const f = e.target;
+      const body = encodeURIComponent(
+        "Offerte via website\nNaam: " + f.naam.value +
+        "\nTel: " + f.tel.value + "\nWerk: " + kind +
+        "\nPlaats: " + f.plaats.value + "\n\n" + f.kort.value
+      );
+      location.href = "mailto:info@pabouw.nl?subject=" + encodeURIComponent("Offerte " + kind) + "&body=" + body;
+    };
+  </script>
+
+  <footer class="foot">
+    <img src="pa-bouw-logo.png" width="56" height="56" alt="" />
+    <p>P.A.BOUW B.V.<br />Noorddammerweg 109-05, 1187 ZS Amstelveen</p>
+    <p>Amsterdam · werkzaam in heel Nederland</p>
+    <p><a href="tel:+31686474177">06 86 47 41 77</a> · <a href="mailto:info@pabouw.nl">info@pabouw.nl</a></p>
+    <p class="mini">Geen klantadressen op deze site.</p>
+  </footer>
+  <div class="dock">
+    <a href="tel:+31686474177">Bellen</a>
+    <a href="https://wa.me/31686474177">WhatsApp</a>
+    <a href="contact.html">Offerte</a>
+  </div>
+</body>
+</html>

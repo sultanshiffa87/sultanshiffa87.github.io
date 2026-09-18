@@ -105,3 +105,15 @@ input, textarea, select { font: inherit; padding: 12px; border: 1px solid var(--
   .dock { display: grid; }
   .foot { padding-bottom: 88px; }
 }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+.page { padding-top: 40px; }
+.lead { max-width: 60ch; color: var(--muted); }
+.quote { font-family: var(--display); font-size: 28px; max-width: 36ch; }
+.why { max-width: 640px; color: var(--muted); }
+.more { font-weight: 700; }
+.mini { opacity: 0.65; font-size: 13px; }
+.cta { padding: 72px 8vw; background: var(--ink); color: #fff; }
+.cta .btn-o { color: #fff; }
+.btn-o.dark { border: 1px solid var(--ink); color: var(--ink); }
+.faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+
